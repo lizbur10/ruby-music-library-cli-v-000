@@ -1,7 +1,7 @@
 require 'pry'
 class Genre
   extend Concerns::Findable
-
+  
   attr_accessor :name, :songs
   @@all = []
 
@@ -19,7 +19,9 @@ class Genre
   end
 
   def self.create(name)
-    Genre.new(name).tap.save
+    genre = Genre.new(name)
+    genre.save
+    genre
   end
 
   def save
